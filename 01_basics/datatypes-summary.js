@@ -9,7 +9,7 @@ STRING, NUMBER, BOOLEAN, UNDEFINDED, NULL, SYMBOL, BIGINT
 const score = 100          // Datatype => number
 const scoreValue = 100.3   // Datatype => number
 
-const isLoggedIn = false   // Datatype => boolean
+const isLoggedIn = false        // Datatype => boolean
 const outsideTemperature = null  // Datatype => object
 
 let userEmail;                // Datatype => undefined
@@ -36,7 +36,8 @@ let myObj ={
 const myFunction = function() {
     console.log("hello khushi");
 }
-// Datatype => function (function object)
+// Datatype => function 
+// (function object or object function)
 
 console.log(typeof myFunction)
 
