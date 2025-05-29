@@ -58,4 +58,6 @@ console.log(string9);
 
 console.log(gameName);
 
+const string10 = gameName.small();
+console.log(string10);
 
