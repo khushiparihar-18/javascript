@@ -25,3 +25,4 @@ console.log(`Value of a (from Global Scope) : ${a}`);
 // for(let i = 0; i < array.length; i++){
 //     const element = array[i];
 // }
+
