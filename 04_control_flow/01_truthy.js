@@ -59,17 +59,19 @@ let val1;
 // val1 = null ?? 10;
 // val1 = undefined ?? 15
 val1 = null ?? 10 ?? 20
-
-
-console.log(val1);
+// console.log(val1);
 
 // Ternary Operator & NCO Both are totally Different
 
 // condition ? true : false 
 
 const iceTeaPrice = 100
-iceTeaPrice >= 80 ? console.log("More Than 80") : console.log("Less than 80");
+// iceTeaPrice >= 80 ? console.log("More Than 80") : console.log("Less than 80");
 
 const iceCreamePrice = 70;
-iceCreamePrice <= 70 ? console.log("Less Than 70") : console.log("More than 70");
+// iceCreamePrice <= 70 ? console.log("Less Than 70") : console.log("More than 70");
+
+const bday = 18 ?? 20;
+// const bday = null ?? 20;
+bday === 18 ? console.log("It's Khushi's B'day") : console.log("It's King's B'day");
 
