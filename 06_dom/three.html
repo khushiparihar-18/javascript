@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khushi Parihar</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    // const khushi = document.createElement('khushi')
+    // console.log(khushi);
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = "kp"
+    // div.id = "myId"
+    // div.id = Math.floor(Math.random()*10+1)
+    div.id = Math.round(Math.random()*10+1)
+    div.setAttribute("title","Learn with Khushi Parihar")
+    div.style.backgroundColor = "pink"
+    div.style.padding = "30px"
+    // div.innerHTML = "NBA Star Khushi Parihar"  // 1 EXTRA ROUNDTRIP IS USED HERE. YE PHLE VALUE LEKE AATA HAI(reference) PHIR OVERWRITE KRTA HAI. setAttribute Direct hi Kr deta hai
+    // 2nd Approach - this also takes 2 rtt
+    const addText = document.createTextNode("KHUSHI LEARNING JAVASCRIPT");
+    div.appendChild(addText)
+    // WHich One to choose!
+    // Both are correct!
+    // But which one is Optimize we'll learn this thing later!
+
+    document.body.appendChild(div);
+
+
+</script>
+</html>
