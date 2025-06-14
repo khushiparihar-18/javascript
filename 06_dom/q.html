@@ -9,31 +9,37 @@
     
 </body>
 <script>
-        const arr1 = ['jyoti','ankita', 'umesh', 'parihar', 'khushi']
-    const arr2 = ['blue', 'green', 'yellow', 'red', 'purple', 'grey', 'white', 'orange']
+        const kp_hobby = ["NBA","HACKER","SNIPER","RIDER","RACER"];
+        const color = ['red','blue','grey','purple','pink','skyblue'];
 
-    function getRandomColor(colors) {
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
-    
-    arr1.forEach((text) => {
-    const randomColor = getRandomColor(arr2);
-    multipleButtons(text, randomColor);
-});
+        function Colors(colorArray){
+            return colorArray[Math.floor(Math.random()*color.length)];
+        }
+
+        kp_hobby.forEach((hobby) => {
+            const theColor = Colors(color);
+            theButtons(hobby,theColor);
+        });
+   
+
+        function theButtons(myHobbies, ButtonColor){
+            const button = document.createElement("button");
+            console.log(button);
+            button.setAttribute('className','firstbutton');
+            button.setAttribute('type','submit');
+            button.style.backgroundColor = ButtonColor;
+            button.style.cursor = 'pointer'
+            button.style.padding = '20px'
+            button.style.margin = '20px'
+            // button.style.alignContent = 'centre'
+            button.style.borderRadius = '30px'
+
+            const myNode = document.createTextNode(myHobbies);
+            button.appendChild(myNode);
+            document.body.appendChild(button);
+            
+        }
 
 
-    function multipleButtons(text, bgColor) {
-        const button = document.createElement('button')
-        console.log(button)
-        button.setAttribute('className', 'firstbutton')
-        button.setAttribute('type', 'submit')
-        button.style.backgroundColor = `${bgColor}`
-        button.style.cursor = 'pointer'
-        button.style.padding = "12px"
-        button.style.borderRadius = "10px"
-        const textnode = document.createTextNode(`${text}`)
-        button.appendChild(textnode)
-        document.body.appendChild(button)
-    }
     </script>
 </html>
