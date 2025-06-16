@@ -6,7 +6,7 @@
 
 # Solution Code
 
-## project 1
+## project 1 Solution Code
 
 ``` javascript
 console.log("Khushi")
@@ -38,6 +38,42 @@ buttons.forEach(function (button) {
         console.log('No matching color');
     }
   });
+});
+
+```
+
+## project 2 Solution Code
+
+```javascript 
+const form = document.querySelector('form');
+
+// This UseCase will Give us Empty Value
+// const height = pareseInt(document.querySelector('#height').value)
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+  const results = document.querySelector('.results');
+  if (height <= 0 || isNaN(height)) {
+    results.innerHTML = 'Please Give a Valid Height';
+  } else if (weight <= 0 || isNaN(weight)) {
+    results.innerHTML = 'Please Give a Valid Weight';
+  } else {
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+
+    var message = '';
+    if (bmi < 18.6) {
+      message = 'underweight';
+    } else if (bmi >= 18.6 && bmi < 24.9) {
+      message = 'Normal Range';
+    } else if (bmi >= 24.9) {
+      message = 'OverWeight';
+    }
+    // show the result
+    results.innerHTML = `<span>${bmi} ${message}</span>`;
+  }
 });
 
 ```
