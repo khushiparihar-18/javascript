@@ -95,3 +95,103 @@ let date = new Date();
 d.innerHTML = date.toLocaleDateString();
 
 ```
+
+## project 4 Solution Code
+
+```javascript
+let randomNumber = Math.floor(Math.random() * 100 + 1);
+
+const userSubmit = document.getElementById('submt');
+const userInput = document.getElementById('guessField');
+const userGuesses = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const lowOrHigh = document.querySelector('.lowOrHigh');
+const startOver = document.querySelector('.resultParas');
+
+const p = document.createElement('p');
+
+let prevGuess = [];
+let numberOfGuesses = 1;
+
+let playGame = true;
+
+if (playGame) {
+  userSubmit.addEventListener('click', function (e) {
+    e.preventDefault();
+    const guessedNumber = parseInt(userInput.value);
+    console.log(guessedNumber);
+    validateGuess(guessedNumber);
+  });
+}
+
+function validateGuess(guess) {
+  if (isNaN(guess)) {
+    alert('Please Enter a Valid Number');
+  } else if (guess < 1) {
+    alert('Please Enter a Number between 1 to 100');
+  } else if (guess > 100) {
+    alert('Please Enter a number Between 1 to 100');
+  } else {
+    prevGuess.push(guess);
+    if (numberOfGuesses > 10) {
+      displayGuess(guess);
+      displayMessage(`Game Over and Random Number was ${randomNumber}`);
+      endGame();
+    } else {
+      displayGuess(guess);
+      checkGuess(guess);
+    }
+  }
+}
+
+function checkGuess(guess) {
+  if (guess === randomNumber) {
+    displayMessage(`You Win! Your Guess was Right!`);
+    endGame();
+  } else if (guess < randomNumber) {
+    displayMessage(`Guessed Number is very Low Baby! Try Again!`);
+  } else if (guess > randomNumber) {
+    displayMessage(
+      `Guessed Number is very high Baby! have One More Chance so Try Again!`
+    );
+  }
+}
+
+function displayGuess(guess) {
+  // A Clean-up Method
+  userInput.value = '';
+  userGuesses.innerHTML += `  ${guess}     `;
+  numberOfGuesses++;
+  remaining.innerHTML = `${11 - numberOfGuesses}`;
+}
+
+function displayMessage(message) {
+  lowOrHigh.innerHTML = `<h3>${message}</h3>`;
+}
+
+function endGame() {
+  userInput.value = '';
+  userInput.setAttribute('disabled', '');
+  p.classList.add('button');
+  p.innerHTML = `<h2 id="startNewGame">Start New Game</h2>`;
+  startOver.appendChild(p);
+  playGame = false;
+  startNewGame();
+}
+
+function startNewGame() {
+  const newGameButton = document.querySelector('#startNewGame');
+  newGameButton.addEventListener('click', function (e) {
+    randomNumber = Math.floor(Math.random() * 100 + 1);
+    prevGuess = [];
+    numberOfGuesses = 1;
+    userGuesses.innerHTML = '';
+    remaining.innerHTML = `${11 - numberOfGuesses}`;
+    userInput.removeAttribute('disabled');
+    startOver.removeChild(p);
+
+    playGame = true;
+  });
+}
+
+```
