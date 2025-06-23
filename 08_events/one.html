@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+</head>
+<body 
+style="background-color: #414141; color: aliceblue;"
+>
+    <h2>Some Amazing Pictures</h2>
+    <div>
+        <ul id="images">
+            <li>
+                <img id="GoldenTemple" src="https://images.pexels.com/photos/32647201/pexels-photo-32647201.jpeg" alt="golden Temple" width="300" height="200">
+            </li>
+            <!-- 1st Approach -->
+            <!-- <li>
+                <img id="Nature" src="https://images.pexels.com/photos/32647200/pexels-photo-32647200.jpeg" alt="The Nature" width="300" height="400" onclick="alert('The Nature!')">
+            </li> -->
+            <li>
+                <img id="Nature" src="https://images.pexels.com/photos/32647200/pexels-photo-32647200.jpeg" alt="The Nature" width="300" height="400">
+            </li>
+            <li>
+                <img id="Cube" src="https://images.pexels.com/photos/32647202/pexels-photo-32647202.jpeg" alt="Cube :) Puzzle Solver" width="300" height="400">
+            </li>
+            <li>
+                <a style="color: aliceblue;" target="_blank" href="https://google.com" id="google">Google</a>
+            </li>
+
+        </ul>
+    </div>
+</body>
+
+<script>
+
+    // 2nd Approach
+    // document.getElementById('Nature').onclick = function(){
+    //     alert("Nature Clicked!")
+    // }
+
+    // 4th Approach : attachEvent()
+    // 5th Approach : jQuery - .on
+    // 3rd Approach : Best Approach
+
+    
+            // type, timeStamp, DefaultPrevented
+            // target, toElement, srcElement, currentTarget
+            // clientX, clientY, screenX, screenY
+            // altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("Clicked inside the ul");
+    //     e.stopPropagation();
+        
+    // },false)
+
+
+    // document.getElementById('Nature').addEventListener('click',function(e){
+    //     console.log("Nature Clicked");
+    //     // e.stopPropagation();
+        
+    // },false)
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("Google Cliced!");
+    // },false)
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        // console.log(e);
+        // console.log(e.target);
+        // console.log(e.target.parentNode);
+        // console.log(e.target.tagName);
+
+        if(e.target.tagName === "IMG"){
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+        // removeIt.remove();
+        removeIt.parentNode.removeChild(removeIt);
+        }
+        
+    },false)
+
+   
+
+
+
+
+</script>
+
+</html>
