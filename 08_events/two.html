@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>BucketsBrigade</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(function(){
+    //     console.log("Khushi")
+    // }, 2000)
+
+    // setInterval(function(){
+    //     console.log("parihar");
+        
+    // },5000)
+
+    const sayKhushi = function(){
+        console.log("Khushi Parihar");
+        
+    }
+
+   const changeHeading
+   = function(){ document.querySelector('h1').innerHTML = "Best JS Series"
+   }
+
+    setTimeout(sayKhushi,3000)
+    const changeMe = setTimeout(changeHeading,3000)
+
+    const myButton = document.querySelector('#stop')
+
+    myButton.addEventListener('click',function(){
+        clearTimeout(changeMe);
+        console.log("Stopped!");
+        
+    })
+
+</script>
+</html>
