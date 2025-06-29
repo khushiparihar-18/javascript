@@ -195,3 +195,70 @@ function startNewGame() {
 }
 
 ```
+
+## project - 5 (Event Key Codes) Solution code
+
+```javascript
+const insert = document.getElementById('insert');
+
+window.addEventListener('keypress', (e) => {
+  insert.innerHTML = `
+    <div class = "color">
+    <table>
+  <tr>
+    <th>Key</th>
+    <th>KeyCode</th>
+    <th>Code</th>
+  </tr>
+  <tr>
+    <td>${e.key === ' ' ? 'Space' : e.key}</td>
+    <td>${e.keyCode}</td>
+    <td>${e.code}</td>
+  </tr>
+  
+</table>
+      
+    </div>
+  `;
+});
+
+```
+
+## project 6 (Change Background Color) - Solution Code
+
+``` javascript
+
+// generate a Random Color from random hax Value!
+
+const randomColor = function () {
+  const hex = '0123456789ABCDEF';
+  // we know how color Appear :  eg. #FFFFFF
+
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+let intervelId;
+const startChangingColor = function () {
+  function changeBgColor() {
+    document.body.style.backgroundColor = randomColor();
+  }
+  if (!intervelId) {
+    intervelId = setInterval(changeBgColor, 1000);
+  }
+};
+
+const stopChangingColor = function () {
+  clearInterval(intervelId);
+  intervelId = null;
+};
+
+const start = document.getElementById('start');
+start.addEventListener('click', startChangingColor);
+
+const stop = document.getElementById('stop');
+stop.addEventListener('click', stopChangingColor);
+```
