@@ -104,7 +104,6 @@ consumePromiseFive()
 //     const userData = await response.json()
 //     // const userData =  response.json()
 //     console.log(userData);
-//     console.log(userData);
 //    } catch (e) {
 //     console.log("E : ",e);
     
